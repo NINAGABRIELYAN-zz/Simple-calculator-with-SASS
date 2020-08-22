@@ -1,0 +1,66 @@
+$bgcolor: #004547;
+$fontfamily: "Monserat", sans-serif;
+$bordercolor: #89fbff;
+$textcolor: #89fbff;
+
+@mixin button-style{
+    @include border;
+    margin: 0.2vw;
+    width: 2vw;
+    height: 4vh;
+    align-items: center;
+    background: $bgcolor;
+    border: 2px solid $bordercolor;
+    color: $textcolor;
+    font-size: 1vw;
+}
+
+@mixin border{
+    border: 2px solid $bordercolor;
+    border-radius: 20px;
+}
+@mixin input-style{
+    margin: 0.3vw;
+    width: 9vw;
+    height: 2.5vh;
+    font-size: 1vw;
+    border-radius: 5px;
+}
+body{
+    background: $bgcolor;
+    font-family: $fontfamily;
+
+    .calculator{
+        @include border;
+        background:$bgcolor;
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 10vw;
+        height: 25vh;
+        padding: 3vw;
+        margin: 3vw;
+        }  
+}
+button{
+    @include button-style();
+    outline: none;
+    cursor: pointer;
+
+    &:hover{
+        border-color:#00adb2;
+        color:#00adb2;
+    }
+}
+input{
+    @include input-style();
+    color: #004547;
+    outline: none;
+    text-align: right;
+
+    &:focus{
+        border-color: #00f3f9;
+    }
+}
